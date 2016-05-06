@@ -3,3 +3,4 @@
 *.log
 *.tfstate
 *.backup
+cloud-go-ref

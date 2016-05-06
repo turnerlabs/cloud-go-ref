@@ -1,10 +1,9 @@
 package controllerRoot
 
 import (
-  "net/http"
+	"net/http"
 )
 
-
 func Root(w http.ResponseWriter, r *http.Request) {
-  w.Write([]byte("Hello from cloud-go-ref"))
+	w.Write([]byte("Hello from cloud-go-ref"))
 }
