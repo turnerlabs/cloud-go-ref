@@ -1,0 +1,5 @@
+/deploys
+/node_modules
+*.log
+*.tfstate
+*.backup
