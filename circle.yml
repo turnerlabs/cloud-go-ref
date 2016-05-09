@@ -1,6 +1,6 @@
 machine:
   environment:
-    GO15VENDOREXPERIMENT=1
+    GO15VENDOREXPERIMENT : "1"
 
 
 
