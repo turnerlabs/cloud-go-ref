@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 import "net/http"
-import "./routes"
+import "./routes/" 
 import "os"
 
 //   curl -i localhost:8080

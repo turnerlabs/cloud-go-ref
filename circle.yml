@@ -1,0 +1,4 @@
+dependencies:
+  override:
+    # just build, no go get (because we are vendored)
+    - go build
