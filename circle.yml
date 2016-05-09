@@ -2,7 +2,12 @@ machine:
   environment:
     GODIST: "go1.6.linux-amd64.tar.gz"
 
+
+
+
+
 dependencies:
   override:
     # just build, no go get (because we are vendored)
+    - GOPATH=$CIRCLE_PROJECT_REPONAME
     - go build
