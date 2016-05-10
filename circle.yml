@@ -1,4 +1,6 @@
 machine:
+  services:
+    - docker
   environment:
     #GO15VENDOREXPERIMENT : "1"
     #GODIST: "go1.6.linux-amd64.tar.gz"
@@ -12,8 +14,6 @@ machine:
 
 
 
-
-
 dependencies:
   override:
     # just build, no go get (because we are vendored)
@@ -22,7 +22,9 @@ dependencies:
     #- |
     #  echo 'export GOPATH=$HOME/.go_project/src/github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$GOPATH' >> ~/.circlerc
     - go get github.com/gorilla/mux
-    # - go build
+    # build a binary artifact.  Maybe add it to s3 or something...
     - GOOS=linux CGO_ENABLED=0 go build -a
+    # build a docker image
+    - docker build -t cloud-go-ref  .
   #cache_directories:
   #  - ~/download
