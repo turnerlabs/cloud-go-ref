@@ -1,6 +1,7 @@
 machine:
   environment:
     GO15VENDOREXPERIMENT : "1"
+    ECHO 'EXPORT GO15VENDOREXPERIMENT=1'
     GODIST: "go1.6.linux-amd64.tar.gz"
   post:
     - mkdir -p download
