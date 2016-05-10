@@ -1,10 +1,9 @@
-package app
+package routes
 
 import "fmt"
 import "net/http"
 import "github.com/gorilla/mux"
-//import ".././controllers/health"
-//import ".././controllers/root"
+import "github.com/turnerlabs/cloud-go-ref/pkg/controllers"
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hi there from golang")

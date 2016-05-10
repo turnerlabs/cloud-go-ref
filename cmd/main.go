@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 import "net/http"
-import "github.com/turnerlabs/cloud-go-ref/app"
+import "github.com/turnerlabs/cloud-go-ref/pkg/routes"
+import "github.com/turnerlabs/cloud-go-ref/pkg/controllers"
 import "os"
 
 //   curl -i localhost:8080
