@@ -1,4 +1,4 @@
-package controllerRoot
+package app
 
 import (
 	"net/http"

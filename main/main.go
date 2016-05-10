@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 import "net/http"
-import "./routes/" 
+import "github.com/turnerlabs/cloud-go-ref/app"
 import "os"
 
 //   curl -i localhost:8080
