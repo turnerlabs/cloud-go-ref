@@ -25,6 +25,6 @@ dependencies:
     # build a binary artifact.  Maybe add it to s3 or something...
     - GOOS=linux CGO_ENABLED=0 go build -a
     # build a docker image
-    - docker build -t cloud-go-ref  .
+    - docker build -t cloud-go-ref:$CIRCLE_SHA1  .
   #cache_directories:
   #  - ~/download
