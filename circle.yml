@@ -22,6 +22,7 @@ dependencies:
     #- |
     #  echo 'export GOPATH=$HOME/.go_project/src/github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$GOPATH' >> ~/.circlerc
     - go get github.com/gorilla/mux
-    - go build
-  cache_directories:
-    - ~/download
+    # - go build
+    - GOOS=linux CGO_ENABLED=0 go build -a
+  #cache_directories:
+  #  - ~/download
