@@ -12,11 +12,11 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = ":80"
+		port = ":8080"
 	}
 
 	routes.Register()
 	fmt.Println("Listening on port: " + port)
-	http.ListenAndServe(port, nil)
+	fmt.Println(http.ListenAndServe(port, nil))
 
 }
