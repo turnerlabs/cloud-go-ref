@@ -1,13 +1,11 @@
 package logger
 
-
-
 import logrus "github.com/Sirupsen/logrus"
 import "sync"
 
 var log
-var instance *log
-var once sync.Once
+//var instance *log
+//var once sync.Once
 
 
 
@@ -24,9 +22,11 @@ func Init() {
 
 }
 
+
+/*
 func GetInstance() *log {
     once.Do(func() {
         instance = &log{}
     })
     return instance
-}
+} */
