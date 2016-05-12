@@ -1,11 +1,13 @@
 package logger
 
-import logrus "github.com/Sirupsen/logrus"
-import "sync"
 
 var log
 var instance *log
 var once sync.Once
+import logrus "github.com/Sirupsen/logrus"
+import "sync"
+
+
 
 func Init() {
 
