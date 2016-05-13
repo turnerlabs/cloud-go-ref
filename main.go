@@ -29,10 +29,17 @@ func main() {
 
 	log.Info("cloud-go-ref is starting up...")
 
+  /*
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = ":8080"
 	}
+
+	*/
+
+	// default to 80 for now
+	port := ":80"
 
 	log.Info("Attempting to listen on port: " + port)
 
