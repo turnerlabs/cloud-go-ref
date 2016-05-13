@@ -36,10 +36,10 @@ dependencies:
     # build a docker image
     #- docker build -t turner/cloud-go-ref:$CIRCLE_SHA1  .
     - docker build -t gcr.io/$GCLOUD_PROJECT/cloud-go-ref  .
-    - echo $GCLOUD_SERVICE_KEY | base64 --decode > ${HOME}/client-secret.json
+    #- echo $GCLOUD_SERVICE_KEY | base64 --decode > ${HOME}/client-secret.json
     #- gcloud --quiet components update
-    - gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
-    - gcloud config set project $GCLOUD_PROJECT
+    #- gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
+    #- gcloud config set project $GCLOUD_PROJECT
 
     # push the image to google
     - gcloud docker push gcr.io/$GCLOUD_PROJECT/cloud-go-ref

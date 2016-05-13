@@ -3,11 +3,28 @@ package main
 import (
 	logrus "github.com/Sirupsen/logrus"
 	"net/http"
+	"html/template"
 )
 
 func (rc Controller) root(w http.ResponseWriter, r *http.Request) {
 	log.WithFields(logrus.Fields{"area": "rootController"}).Info("Root controller.")
-	w.Write([]byte("Hello from cloud-go-ref"))
+	//w.Write([]byte("Hello from cloud-go-ref"))
+
+
+	html := render()
+
+  //fmt.Println(html)
+
+  tmpl, err := template.New("name").Parse(html)
+  if err != nil {
+    http.Error(w, err.Error(), http.StatusInternalServerError)
+    return
+  }
+
+  if err := tmpl.Execute(w, nil); err != nil {
+    http.Error(w, err.Error(), http.StatusInternalServerError)
+  }
+
 }
 
 
