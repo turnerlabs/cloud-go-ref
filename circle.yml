@@ -35,14 +35,14 @@ dependencies:
     - GOOS=linux CGO_ENABLED=0 go build -a
     # build a docker image
     #- docker build -t turner/cloud-go-ref:$CIRCLE_SHA1  .
-    - docker build -t gcr.io/$GCLOUD_PROJECT/cloud-go-ref  .
+    - sudo docker build -t gcr.io/$GCLOUD_PROJECT/cloud-go-ref  .
     #- echo $GCLOUD_SERVICE_KEY | base64 --decode > ${HOME}/client-secret.json
     #- gcloud --quiet components update
     #- gcloud auth activate-service-account --key-file ${HOME}/client-secret.json
     #- gcloud config set project $GCLOUD_PROJECT
 
     # push the image to google
-    - gcloud docker push gcr.io/$GCLOUD_PROJECT/cloud-go-ref
+    - sudo gcloud docker push gcr.io/$GCLOUD_PROJECT/cloud-go-ref
 
     # pull the credentials for the cluster we are going to...
     #- gcloud container clusters get-credentials $KUBE_CLUSTER
