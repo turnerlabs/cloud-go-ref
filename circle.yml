@@ -42,7 +42,7 @@ dependencies:
     #- gcloud config set project $GCLOUD_PROJECT
 
     # push the image to google
-    - sudo gcloud docker push gcr.io/$GCLOUD_PROJECT/cloud-go-ref
+    - sudo /opt/google-cloud-sdk/bin/gcloud docker push gcr.io/$GCLOUD_PROJECT/cloud-go-ref
 
     # pull the credentials for the cluster we are going to...
     #- gcloud container clusters get-credentials $KUBE_CLUSTER
