@@ -3,10 +3,13 @@ machine:
     - docker
   environment:
     GCLOUD_PROJECT: "cloud-go-ref"
+    KUBE_CLUSTER: "cluster-mickey"
+    CLOUDSDK_COMPUTE_ZONE: "us-central1-b"
     #GO15VENDOREXPERIMENT : "1"
     #GODIST: "go1.6.linux-amd64.tar.gz"
   pre:
     #- echo 'EXPORT GO15VENDOREXPERIMENT=1'
+
   post:
     #- mkdir -p download
     #- test -e download/$GODIST || curl -o download/$GODIST https://storage.googleapis.com/golang/$GODIST
@@ -16,6 +19,15 @@ machine:
 
 
 dependencies:
+  pre:
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
+    - echo $GCLOUD_SERVICE_KEY | base64 --decode -i > ${HOME}/gcloud-service-key.json
+    - sudo /opt/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+    - sudo /opt/google-cloud-sdk/bin/gcloud config set project $GCLOUD_PROJECT
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet config set container/cluster $KUBE_CLUSTER
+    - sudo /opt/google-cloud-sdk/bin/gcloud config set compute/zone ${CLOUDSDK_COMPUTE_ZONE}
+    - sudo /opt/google-cloud-sdk/bin/gcloud --quiet container clusters get-credentials $KUBE_CLUSTER
   override:
     # get dependencies
     - go get -t -d -v ./...
@@ -31,3 +43,6 @@ dependencies:
 
     # push the image to google
     - gcloud docker push gcr.io/$GCLOUD_PROJECT/cloud-go-ref
+
+    # pull the credentials for the cluster we are going to...
+    #- gcloud container clusters get-credentials $KUBE_CLUSTER
