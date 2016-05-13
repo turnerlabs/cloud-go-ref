@@ -47,7 +47,7 @@ dependencies:
 
     - sudo chown -R ubuntu:ubuntu /home/ubuntu/.kube
 
-    - ./deploy.sh
+    - ./deploy.sh  $CIRCLE_SHA1 $GCLOUD_PROJECT
 
 
     #- kubectl run cloud-go-ref --image=gcr.io/$GCLOUD_PROJECT/cloud-go-ref:$CIRCLE_SHA1 --port=80
