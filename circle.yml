@@ -46,7 +46,7 @@ dependencies:
     - sudo /opt/google-cloud-sdk/bin/gcloud docker push gcr.io/$GCLOUD_PROJECT/cloud-go-ref
 
     - sudo chown -R ubuntu:ubuntu /home/ubuntu/.kube
-    - kubectl run cloud-go-ref --image=gcr.io/$GCLOUD_PROJECT/cloud-go-ref:$CIRCLE_SHA1 --port=8080
+    - kubectl run cloud-go-ref --image=gcr.io/$GCLOUD_PROJECT/cloud-go-ref:$CIRCLE_SHA1 --port=80
     - kubectl expose deployment cloud-go-ref --type="LoadBalancer"
     #- kubectl patch deployment cloud-go-ref -p '{"spec":{"template":{"spec":{"containers":[{"name":"cloud-go-ref","image":"gcr.io/$GCLOUD_PROJECT/cloud-go-ref:'"$CIRCLE_SHA1"'"}]}}}}'
 
