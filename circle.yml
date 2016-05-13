@@ -2,7 +2,7 @@ machine:
   services:
     - docker
   environment:
-    GCLOUD_PROJECT: "cloud-go-ref"
+    GCLOUD_PROJECT: "axiomatic-array-130823"
     KUBE_CLUSTER: "cluster-mickey"
     CLOUDSDK_COMPUTE_ZONE: "us-central1-b"
     #GO15VENDOREXPERIMENT : "1"
