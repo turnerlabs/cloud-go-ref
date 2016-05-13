@@ -36,7 +36,7 @@ func render() string {
              <title>hello from golang!</title>
            </head>
            <body>
-           <h1>Hello World!  This is cloud-go-ref...</h1>
+           <h1>Hello World!  This is cloud-go-ref...  With a fresh update!!</h1>
            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
            </body>
            </html>`
