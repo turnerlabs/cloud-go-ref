@@ -13,7 +13,7 @@ if [ "${output/$FOUND_STRING}" = "$output" ] ; then
   # add the deployment...
   #
   # $(kubectl expose deployment cloud-go-ref --type="LoadBalancer")
-  kubectl run cloud-go-ref --image=gcr.io/$GCLOUD_PROJECT/cloud-go-ref:$CIRCLE_SHA1 --port=80
+  kubectl run cloud-go-ref --image=gcr.io/$GCLOUD_PROJECT/cloud-go-ref:$CIRCLE_SHA1 --replicas=5 --port=80
   kubectl expose deployment cloud-go-ref --type="LoadBalancer"
 else
   echo "FOUND THE DEPLOYMENT"
